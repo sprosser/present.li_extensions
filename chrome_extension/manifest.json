@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+
+  "name": "Present.li",
+  "description": "Testing this out yo",
+  "version": "1.0",
+
+  "browser_action": {
+   "default_icon": "icon.png"
+  },
+  "permissions": [
+   "activeTab",
+   "tabs",
+   "http://*/*",
+   "https://*/*"
+   ],
+  "background":
+    {
+      "persistent": false,
+      "scripts": ["third-party/jquery-2.2.2.min.js", "scripts/eventPage.js"]
+    },
+   "content_scripts": [
+    {
+      "matches": ["http://*/*","https://*/*"],
+      "css": ["styles/mystyles.css"],
+      "js": ["third-party/jquery-2.2.2.min.js", "scripts/script.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
